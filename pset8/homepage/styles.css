@@ -1,0 +1,25 @@
+body {
+    width: 100vw;
+    min-height: 100vh;
+}
+
+main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+#alertDiv {
+    margin-top: 30px;
+}
+
+.btn {
+    border-radius: 8px;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+
+            function checkChoiceAnswer(event) {
+                var triggerObject = event.srcElement;
+                var answer = triggerObject.innerHTML;
+
+                let buttons = document.getElementsByTagName('button');
+
+                for (var i = 0; i < 3; i++)
+                {
+                    buttons.item(i).style.backgroundColor = '#d9edff';
+                }
+
+                if (answer.localeCompare('Chisinau') == 0)
+                {
+                    document.getElementById('feedback').innerHTML = "Correct!";
+                    triggerObject.style.backgroundColor = 'green';
+                }
+
+                else
+                {
+                    document.getElementById('feedback').innerHTML = "Incorrect."
+                    triggerObject.style.backgroundColor = 'red';
+                }
+            }
+
+            function checkFreeAnswer(event) {
+                var input = document.querySelector('#freeAnswer');
+                var answer = input.value;
+
+                if (answer == '2002')
+                {
+                    input.style.backgroundColor = 'green';
+                    document.getElementById('feedback2').innerHTML = 'Correct!'
+                }
+
+                else
+                {
+                    input.style.backgroundColor = 'red';
+                    document.getElementById('feedback2').innerHTML = 'Incorrect.'
+                }
+
+            }
+
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                    <h3>What is the capital of Moldova?</h3>
+                    <button type="button" onclick="checkChoiceAnswer(event);">Manteca</button>
+                    <button type="button" onclick="checkChoiceAnswer(event);">Chisinau</button>
+                    <button type="button" onclick="checkChoiceAnswer(event);">I dont care</button>
+
+                    <p id="feedback" class="correctness"></p>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                    <h3>On what year has Gustavo been born?</h3>
+
+
+                        <input name="year" type="number" id="freeAnswer"/>
+                        <button form_id="form" type="submit" onclick='checkFreeAnswer(event)'>Submit!</button>
+
+                    <p id="feedback2" class="correctness"></p>
+
+            </div>
+
+        </div>
+    </body>
+</html>
